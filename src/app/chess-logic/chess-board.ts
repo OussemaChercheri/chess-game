@@ -8,9 +8,13 @@ import { Queen } from './pieces/queen';
 import { Rook } from './pieces/rook';
 
 export class ChessBoard {
+  isPieceSelected(x: number, y: number) {
+    throw new Error('Method not implemented.');
+  }
   private chessBoard: (Piece | null)[][];
   private readonly ChessBoardSize: number = 8;
   private _playerColor = Color.white;
+  private _safeSquare: SafeSquare;
 
   constructor() {
     this.chessBoard = [
@@ -59,6 +63,7 @@ export class ChessBoard {
         new Rook(Color.black),
       ],
     ];
+    this._safeSquare = this.findSafeSquares();
   }
 
   public get playerColor(): Color {
@@ -71,6 +76,10 @@ export class ChessBoard {
         piece instanceof Piece ? piece.FENChar : null
       );
     });
+  }
+
+  public get SafeSquare(): SafeSquare {
+    return this._safeSquare;
   }
 
   public static isSquareDark(x: number, y: number): boolean {
