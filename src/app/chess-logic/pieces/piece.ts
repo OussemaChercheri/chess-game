@@ -6,7 +6,7 @@ export abstract class Piece {
 
   constructor(protected _color: Color) {}
 
-  public get FENCHAR(): FENChar {
+  public get FENChar(): FENChar {
     return this._FENChar;
   }
 
