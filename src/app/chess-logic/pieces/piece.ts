@@ -10,6 +10,10 @@ export abstract class Piece {
     return this._FENChar;
   }
 
+  public get directions(): Coords[] {
+    return this._directions;
+  }
+
   public get color(): Color {
     return this._color;
   }
